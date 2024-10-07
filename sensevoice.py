@@ -39,7 +39,7 @@ def execute_asr(input_folder, output_folder, language, device):
             res = model.generate(
                 input=file_path,
                 cache={},
-                language=language.lower(),  # "zn", "en", "yue", "ja", "ko", "nospeech"
+                language=language.lower(),
                 use_itn=False,
                 batch_size_s=0,
                 device=device
@@ -47,7 +47,10 @@ def execute_asr(input_folder, output_folder, language, device):
             text = re.sub(r'<[^<>]*>', '', res).replace('  ', '')
             if language.lower() != "en":
                 text = text.replace(' ', '')
-            output.append(f"{file_path}|{text}")
+            
+            # Modify the path for output to match TT2/VITS-TTS format
+            relative_file_path = os.path.join("wavs", file_name)
+            output.append(f"{relative_file_path}|{text}")
         except Exception as e:
             print(f"Error processing file {file_name}:", e)
             print(traceback.format_exc())
