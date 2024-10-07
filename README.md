@@ -43,7 +43,7 @@ python SpeedScribe.py -i <input_folder> -o <output_folder> -s <model_size> -l <l
 #### Example:
 
 ```bash
-python SpeedScribe.py -i dataset/audio -o output -s faster-distil-whisper-large-v3 -l English -p float16
+python SpeedScribe.py -i dataset/audio -o output -s faster-whisper-large-v3-turbo-ct2 -l English -p float16
 ```
 
 ### 4. Process Transcripts with Dot Processing
@@ -66,7 +66,7 @@ SpeedScribe can also be run directly in Google Colab, allowing you to:
 
 ## Customization
 
-- **Model Selection**: Choose from different Faster Whisper models, including the custom `faster-distil-whisper-large-v3` model.
+- **Model Selection**: Choose from different Faster Whisper models, including the custom `faster-whisper-large-v3-turbo-ct2` model.
 - **Precision Options**: Select between `float16`, `float32`, or `int8` for faster performance or higher accuracy.
 
 ## Contributing
