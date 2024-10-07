@@ -122,8 +122,8 @@ def execute_asr(input_folder, output_folder, model_size, language_name, precisio
         model_size = model_size[:-6]
         model_path = f'tools/asr/models/faster-whisper-{model_size}'
     else:
-        # Use "faster-distil-whisper-large-v3" as the custom model
-        model_path = "Systran/faster-distil-whisper-large-v3" if model_size == "faster-distil-whisper-large-v3" else model_size
+        # Use "faster-whisper-large-v3-turbo-ct2" as the custom model
+        model_path = "deepdml/faster-whisper-large-v3-turbo-ct2" if model_size == "faster-whisper-large-v3-turbo-ct2" else model_size
     
     if language == 'auto':
         language = None  # Don't set language, let the model automatically determine the language
@@ -182,8 +182,8 @@ if __name__ == '__main__':
     parser.add_argument("-o", "--output_folder", type=str, required=True, 
                         help="Output folder to store transcriptions.")
     parser.add_argument("-s", "--model_size", type=str, default='faster-distil-whisper-large-v3', 
-                        choices=["tiny", "base", "small", "medium", "large-v2", "large-v3", "faster-distil-whisper-large-v3"],
-                        help="Model size for Faster Whisper or 'faster-distil-whisper-large-v3' for the custom Hugging Face model.")
+                        choices=["tiny", "base", "small", "medium", "large-v2", "large-v3", "faster-whisper-large-v3-turbo-ct2"],
+                        help="Model size for Faster Whisper or 'faster-whisper-large-v3-turbo-ct2' for the custom Hugging Face model.")
     parser.add_argument("-l", "--language_name", type=str, default='English',
                         choices=list(language_map.keys()),
                         help="Language of the audio files (full name).")
